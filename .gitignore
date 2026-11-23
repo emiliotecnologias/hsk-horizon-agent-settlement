@@ -1,0 +1,11 @@
+.venv/
+out/
+cache/
+broadcast/
+lib/
+demo/deployment.json
+demo/settlement_log.jsonl
+demo/shared/task_*.json
+demo/shared/result_*.json
+__pycache__/
+demo/frames/

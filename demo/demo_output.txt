@@ -1,0 +1,28 @@
+=== HSK Horizon A2A Settlement — local end-to-end demo ===
+[deploy] AgentEscrow at 0x5FbDB2315678afecb367f032d93F642f64180aa3 (chain 31337, gas 1447618)
+[worker] agent 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 online, escrow=0x5FbDB2315678afecb367f032d93F642f64180aa3
+[watcher] watching escrow 0x5FbDB2315678afecb367f032d93F642f64180aa3 (auto-release=off)
+[buyer] agent 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 online, escrow=0x5FbDB2315678afecb367f032d93F642f64180aa3
+[buyer] balances: buyer=9999.997105 HSK  worker=10000.000000 HSK
+[buyer] remaining daily budget: 2 HSK
+[buyer] creating mandate: pay 0.05 HSK to worker 0x70997970… for task bc5da9e30f6b350c…
+[buyer] mandate #1 funded, tx=bbf50b66f9d76664ea… escrow balance=0.050000 HSK
+[buyer] waiting for worker delivery…
+[watcher] MandateCreated: {'jobId': 1, 'buyer': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 'worker': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8', 'amount': 50000000000000000, 'taskHash': 'bc5da9e30f6b350c9122a3ee54c3716a10d251fcdd1ff6e25cdba95808d0b1fd', 'deadline': 1795408722}
+[worker] job 1: taskHash=bc5da9e30f6b350c… amount=0.05 HSK — starting work
+[worker] job 1: analyzed 12 rows, total_revenue=$3449.94, top=Wireless Earbuds
+[worker] job 1: submitting delivery proof ef9d904bae93299c18…
+[worker] job 1: delivery on-chain tx=9b057e523e1ee2e550… gas=53620
+[buyer] delivery proof on-chain: ef9d904bae93299c18…
+[buyer] verified ✓ result hash matches. Worker report: 12 rows, revenue=$3449.94, top product=Wireless Earbuds
+[buyer] payment released tx=60af0cf95d2da4eff6…
+[buyer] balances now: buyer=9999.946623 HSK  worker=10000.049905 HSK  escrow=0.000000 HSK
+[buyer] worker reputation: completedJobs=1, totalEarned=0.05 HSK
+[buyer] cap check: trying to escrow 5 HSK (over the 1 HSK mandate cap)…
+[buyer] correctly rejected by contract caps ✓ (AssertionError)
+[watcher] DeliverySubmitted: {'jobId': 1, 'worker': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8', 'resultHash': 'ef9d904bae93299c180c1a3979ed7d8ca86be140cd3f0214d39cdcf9f432a5e4'}
+[watcher] PaymentReleased: {'jobId': 1, 'worker': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8', 'amount': 50000000000000000, 'autoReleased': False}
+=== demo complete — settlement audit log: demo/settlement_log.jsonl ===
+{"ts": 1795405122, "event": "MandateCreated", "args": {"jobId": 1, "buyer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", "amount": 50000000000000000, "taskHash": "bc5da9e30f6b350c9122a3ee54c3716a10d251fcdd1ff6e25cdba95808d0b1fd", "deadline": 1795408722}}
+{"ts": 1795405124, "event": "DeliverySubmitted", "args": {"jobId": 1, "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", "resultHash": "ef9d904bae93299c180c1a3979ed7d8ca86be140cd3f0214d39cdcf9f432a5e4"}}
+{"ts": 1795405124, "event": "PaymentReleased", "args": {"jobId": 1, "worker": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", "amount": 50000000000000000, "autoReleased": false}}
